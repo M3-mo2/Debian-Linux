@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tcpdump iperf3 mtr whois geoip-bin nload iftop socat netcat-openbsd \
     # System monitoring
     sysstat procps psmisc strace lsof pciutils usbutils htop bpytop btop \
-    glances ncdu duf dust pv progress \
+    glances ncdu duf pv progress \
     # Compression tools
     zip unzip gzip bzip2 xz-utils tar p7zip-full \
     # Programming languages
@@ -32,7 +32,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # Database clients
     sqlite3 default-mysql-client postgresql-client redis-tools \
     # Text processing
-    sed awk grep diffutils patch \
+    sed gawk grep diffutils patch \
     # Security tools
     openssl \
     # Media tools
