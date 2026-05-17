@@ -1,0 +1,33 @@
+#!/bin/bash
+set -e
+
+echo "========================================="
+echo "  Debian Development Environment"
+echo "  Powered by Railway"
+echo "========================================="
+echo ""
+echo "System Information:"
+echo "  OS: $(cat /etc/os-release | grep PRETTY_NAME | cut -d= -f2)"
+echo "  Kernel: $(uname -r)"
+echo "  Architecture: $(uname -m)"
+echo "  Memory: $(free -h | grep Mem | awk '{print $2}')"
+echo "  Disk: $(df -h / | tail -1 | awk '{print $2}')"
+echo ""
+echo "Available Tools:"
+echo "  Python: $(python3 --version 2>/dev/null || echo 'not installed')"
+echo "  Node.js: $(node --version 2>/dev/null || echo 'not installed')"
+echo "  Go: $(go version 2>/dev/null || echo 'not installed')"
+echo "  Ruby: $(ruby --version 2>/dev/null || echo 'not installed')"
+echo "  Java: $(java -version 2>&1 | head -1 || echo 'not installed')"
+echo "  PHP: $(php --version 2>/dev/null | head -1 || echo 'not installed')"
+echo "  Git: $(git --version 2>/dev/null || echo 'not installed')"
+echo "  Docker: $(docker --version 2>/dev/null || echo 'not installed')"
+echo "  kubectl: $(kubectl version --client 2>/dev/null | head -1 || echo 'not installed')"
+echo "  Terraform: $(terraform version 2>/dev/null | head -1 || echo 'not installed')"
+echo ""
+echo "Workspace: /workspace"
+echo "User: developer"
+echo ""
+
+# Execute the command passed to the container
+exec "$@"
